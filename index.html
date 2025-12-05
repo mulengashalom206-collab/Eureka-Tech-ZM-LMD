@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite HVAC Solutions | Professional Heating & Cooling Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: #0066cc;
+            font-size: 28px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .logo-text span {
+            color: #ff6600;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #0066cc;
+            color: white;
+        }
+        
+        .nav-links a.active {
+            background: #0066cc;
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #0066cc;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://drive.google.com/thumbnail?id=1YOUR_IMAGE_ID&sz=w1600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 160px 20px 100px;
+            margin-top: 80px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #f0f0f0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6600;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: 2px solid #ff6600;
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: #ff6600;
+        }
+        
+        /* Common Section Styles */
+        .section {
+            padding: 100px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            color: #0066cc;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #ff6600;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+        
+        /* About Section */
+        .about {
+            background: white;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text h3 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .features {
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            color: #0066cc;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background: #f8f9fa;
+        }
+        
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 280px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Content Section (Contact/WhatsApp) */
+        .content {
+            background: white;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            background: #f0f8ff;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #0066cc;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            background: #0066cc;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 20px;
+        }
+        
+        .whatsapp-contact {
+            background: #f0fff0;
+            border-left: 5px solid #25D366;
+        }
+        
+        .whatsapp-icon {
+            background: #25D366;
+        }
+        
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 2px rgba(0,102,204,0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* WhatsApp CTA Box */
+        .whatsapp-box {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .whatsapp-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .whatsapp-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: #ff6600;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background: #0066cc;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #ff6600;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 140px 20px 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/260978796673?text=Hello%20Elite%20HVAC%20Solutions,%20I%20need%20assistance%20with..." 
+       class="whatsapp-float" 
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-fan logo-icon"></i>
+                <div class="logo-text">Elite<span>HVAC</span></div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#content">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <h1>Professional HVAC Solutions</h1>
+        <p>Expert heating, ventilation, and air conditioning services for residential and commercial properties. Quality service guaranteed with 24/7 emergency support.</p>
+        <a href="#content" class="cta-button">Get Free Consultation</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Your trusted partner in HVAC solutions</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://drive.google.com/thumbnail?id=1YOUR_IMAGE_ID&sz=w800" alt="HVAC Professionals at Work">
+            </div>
+            
+            <div class="about-text">
+                <h3>15+ Years of Excellence in HVAC Services</h3>
+                <p>We are a team of certified HVAC professionals dedicated to providing top-quality heating and cooling solutions. Our expertise spans across residential, commercial, and industrial HVAC systems.</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span>Licensed & Insured Technicians</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span>24/7 Emergency Service Available</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span>Same-Day Service in Most Cases</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span>Upfront Pricing - No Hidden Costs</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span>Quality Guarantee on All Work</span>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px;">Our mission is to ensure your comfort through reliable, efficient, and affordable HVAC solutions that stand the test of time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="section-title">
+            <h2>Our Work Gallery</h2>
+            <p>Recent installations and projects completed by our team</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1YOUR_IMAGE_ID1&sz=w600" alt="Commercial HVAC Installation">
+                <div class="gallery-overlay">
+                    <h4>Commercial Installation</h4>
+                    <p>Large-scale HVAC system for office building</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1YOUR_IMAGE_ID2&sz=w600" alt="Residential AC Unit">
+                <div class="gallery-overlay">
+                    <h4>Residential AC</h4>
+                    <p>High-efficiency air conditioning unit</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1YOUR_IMAGE_ID3&sz=w600" alt="HVAC Maintenance">
+                <div class="gallery-overlay">
+                    <h4>System Maintenance</h4>
+                    <p>Regular maintenance for optimal performance</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1YOUR_IMAGE_ID4&sz=w600" alt="Duct Work Installation">
+                <div class="gallery-overlay">
+                    <h4>Duct Installation</h4>
+                    <p>Professional ductwork for ventilation</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1YOUR_IMAGE_ID5&sz=w600" alt="Smart Thermostat">
+                <div class="gallery-overlay">
+                    <h4>Smart Controls</h4>
+                    <p>Modern thermostat installation</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://drive.google.com/thumbnail?id=1YOUR_IMAGE_ID6&sz=w600" alt="Heating System Repair">
+                <div class="gallery-overlay">
+                    <h4>Heating Repair</h4>
+                    <p>Emergency furnace repair service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section (Contact/WhatsApp) -->
+    <section id="content" class="section content">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Get in touch for all your HVAC needs</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Our Location</h4>
+                        <p>Kitwe, Copperbelt Province<br>Zambia</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>Phone Numbers</h4>
+                        <p>Office: +260 211 123 456</p>
+                        <p>Mobile: +260 978 796 673</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method whatsapp-contact">
+                    <div class="contact-icon whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h4>WhatsApp Business</h4>
+                        <p>Click the WhatsApp button or message directly to:</p>
+                        <p style="font-weight: bold; color: #25D366;">+260 978 796 673</p>
+                        <p>Fast response guaranteed!</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 7:00 AM - 7:00 PM</p>
+                        <p>Saturday: 8:00 AM - 5:00 PM</p>
+                        <p>Sunday: Emergency Services Only</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" class="form-control" required placeholder="Your Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" class="form-control" required placeholder="Your Phone Number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service" class="form-control">
+                            <option value="">Select Service</option>
+                            <option value="ac">Air Conditioning</option>
+                            <option value="heating">Heating Systems</option>
+                            <option value="installation">New Installation</option>
+                            <option value="repair">Repair Services</option>
+                            <option value="maintenance">Maintenance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" class="form-control" required placeholder="Describe your HVAC needs..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- WhatsApp CTA Box -->
+        <div class="whatsapp-box">
+            <h3>Need Immediate Assistance?</h3>
+            <p>Click the WhatsApp button to chat with us instantly!</p>
+            <div class="whatsapp-number">
+                <i class="fab fa-whatsapp"></i> +260 978 796 673
+            </div>
+            <p>We respond within minutes during business hours</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Elite HVAC Solutions</h3>
+                <p>Professional heating, ventilation, and air conditioning services with 15+ years of experience in Zambia.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/260978796673" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none;">
+                    <li><a href="#home" style="color: #ddd; text-decoration: none;">Home</a></li>
+                    <li><a href="#about" style="color: #ddd; text-decoration: none;">About Us</a></li>
+                    <li><a href="#gallery" style="color: #ddd; text-decoration: none;">Gallery</a></li>
+                    <li><a href="#content" style="color: #ddd; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul style="list-style: none; color: #ddd;">
+                    <li>AC Installation & Repair</li>
+                    <li>Heating System Services</li>
+                    <li>HVAC Maintenance</li>
+                    <li>Duct Cleaning</li>
+                    <li>24/7 Emergency Repairs</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p style="color: #ddd;">
+                    <i class="fas fa-phone"></i> +260 978 796 673<br>
+                    <i class="fab fa-whatsapp"></i> WhatsApp Business<br>
+                    <i class="fas fa-envelope"></i> info@elitehvac.co.zm<br>
+                    Kitwe, Zambia
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Elite HVAC Solutions. All rights reserved. | Serving Zambia with Excellence</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Navigation Active State
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section');
+        
+        // Set initial active link
+        navLinks[0].classList.add('active');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+                
+                // Get target section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // Scroll to section
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Form Submission with WhatsApp Integration
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (name && phone && message) {
+                // Prepare WhatsApp message
+                const whatsappMessage = `New Contact Form Submission:%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service || 'Not specified'}%0AMessage: ${message}`;
+                
+                // Create WhatsApp link
+                const whatsappLink = `https://wa.me/260978796673?text=${whatsappMessage}`;
+                
+                // Show success message with option to open WhatsApp
+                const userChoice = confirm(`Thank you ${name}! Your message has been submitted.\n\nWould you like to open WhatsApp to send this message directly?`);
+                
+                if (userChoice) {
+                    window.open(whatsappLink, '_blank');
+                }
+                
+                // Reset form
+                this.reset();
+            } else {
+                alert('Please fill in all required fields (Name, Phone, Message).');
+            }
+        });
+        
+        // Image Gallery Click Handler
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                const imgAlt = this.querySelector('img').alt;
+                
+                // Create modal
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                
+                const modalImg = document.createElement('img');
+                modalImg.src = imgSrc;
+                modalImg.alt = imgAlt;
+                modalImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 5px;
+                    box-shadow: 0 0 30px rgba(0,102,204,0.3);
+                `;
+                
+                modal.appendChild(modalImg);
+                document.body.appendChild(modal);
+                
+                // Close modal on click
+                modal.addEventListener('click', function() {
+                    document.body.removeChild(modal);
+                });
+                
+                // Close modal on ESC key
+                document.addEventListener('keydown', function closeModal(e) {
+                    if (e.key === 'Escape') {
+                        document.body.removeChild(modal);
+                        document.removeEventListener('keydown', closeModal);
+                    }
+                });
+            });
+        });
+        
+        // Initialize with first section active
+        window.addEventListener('load', function() {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            e.preventDefault();
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
